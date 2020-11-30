@@ -1,0 +1,10 @@
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/resource/TurmaResource.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/model/Aluno.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/repository/TurmaRepository.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/resource/AlunoResource.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/repository/AlunoRepository.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/model/Ensino.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/EscolaApplication.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/repository/EnsinoRepository.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/model/Turma.java
+/home/coliv/Área de Trabalho/Faculdade/Faculdade 9º Período/Integração de Software/Trabalho REST Final/escola/src/main/java/br/com/cesjf/escola/resource/EnsinoResource.java

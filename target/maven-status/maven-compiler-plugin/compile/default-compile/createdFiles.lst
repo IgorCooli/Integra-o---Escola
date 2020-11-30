@@ -1,0 +1,10 @@
+br/com/cesjf/escola/resource/TurmaResource.class
+br/com/cesjf/escola/resource/AlunoResource.class
+br/com/cesjf/escola/EscolaApplication.class
+br/com/cesjf/escola/resource/EnsinoResource.class
+br/com/cesjf/escola/repository/TurmaRepository.class
+br/com/cesjf/escola/repository/AlunoRepository.class
+br/com/cesjf/escola/model/Turma.class
+br/com/cesjf/escola/model/Aluno.class
+br/com/cesjf/escola/model/Ensino.class
+br/com/cesjf/escola/repository/EnsinoRepository.class

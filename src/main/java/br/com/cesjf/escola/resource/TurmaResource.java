@@ -1,5 +1,7 @@
 package br.com.cesjf.escola.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,20 +25,20 @@ public class TurmaResource {
 	@Autowired
 	TurmaRepository repo;
 	@Autowired
-	EnsinoRepository EnsinoRepo;
+	EnsinoRepository ensinoRepo;
 	
 	@GetMapping("/findbyid/{id}")
-	public ResponseEntity<?> findById(@PathVariable Long id){
+	public ResponseEntity<TurmaDTO> findById(@PathVariable Long id){
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repo.encontrarPeloId(id));
 	}
 	
 	@GetMapping("/findall")
-	public ResponseEntity<?> findAll(){
+	public ResponseEntity<List<TurmaDTO>> findAll(){
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repo.encontrarTodos());
 	}
 	
 	@PostMapping("/save")
-	public ResponseEntity<?> save(@RequestBody TurmaDTO dto){
+	public ResponseEntity<String> save(@RequestBody TurmaDTO dto){
 		
 		Turma model = new Turma();
 		
@@ -45,7 +47,7 @@ public class TurmaResource {
 		}
 		
 		model.setAno(dto.getAno());
-		model.setEnsino(EnsinoRepo.findByNome(dto.getEnsinoNome()));
+		model.setEnsino(ensinoRepo.findByNome(dto.getEnsinoNome()));
 		model.setNome(dto.getNome());
 		
 		repo.save(model);
@@ -55,16 +57,15 @@ public class TurmaResource {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> delete(@PathVariable Long id){
+	public ResponseEntity<String> delete(@PathVariable Long id){
 		
-		TurmaDTO dto = new TurmaDTO();
-		dto = repo.encontrarPeloId(id);
+		TurmaDTO dto = repo.encontrarPeloId(id);
 		
 		if(dto.getQuantidadeAlunos() == 0) {
 
 			Turma model = new Turma();
 			model.setAno(dto.getAno());
-			model.setEnsino(EnsinoRepo.findByNome(dto.getEnsinoNome()));
+			model.setEnsino(ensinoRepo.findByNome(dto.getEnsinoNome()));
 			model.setId(id);
 			model.setNome(dto.getNome());
 			

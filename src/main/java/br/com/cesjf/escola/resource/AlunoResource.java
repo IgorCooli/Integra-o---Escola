@@ -1,5 +1,7 @@
 package br.com.cesjf.escola.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,25 +28,23 @@ public class AlunoResource {
 	TurmaRepository turmaRepo;
 	
 	@GetMapping("/findbyid/{id}")
-	public ResponseEntity<?> findById(@PathVariable Long id){
+	public ResponseEntity<AlunoDTO> findById(@PathVariable Long id){
 		
-		AlunoDTO dto = new AlunoDTO();
-		
-		dto = repo.encontrarPeloId(id);
+		AlunoDTO dto = repo.encontrarPeloId(id);
 		
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(dto);
 		
 	}
 	
 	@GetMapping("/findall")
-	public ResponseEntity<?> findAll(){
+	public ResponseEntity<List<AlunoDTO>> findAll(){
 		
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repo.encontrarTodos());
 		
 	}
 	
 	@PostMapping("/save")
-	public ResponseEntity<?> save(@RequestBody AlunoDTO dto){
+	public ResponseEntity<String> save(@RequestBody AlunoDTO dto){
 		
 		Aluno model = new Aluno();
 		
@@ -64,11 +64,9 @@ public class AlunoResource {
 	}
 	
 	@DeleteMapping("/delete/{matricula}")
-	public ResponseEntity<?> delete(@PathVariable Long matricula){
+	public ResponseEntity<String> delete(@PathVariable Long matricula){
 		
-		AlunoDTO dto = new AlunoDTO();
-		
-		dto = repo.encontrarPeloId(matricula);
+		AlunoDTO dto = repo.encontrarPeloId(matricula);
 		
 		Aluno model = new Aluno();
 		

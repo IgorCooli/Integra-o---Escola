@@ -1,5 +1,7 @@
 package br.com.cesjf.escola.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +25,12 @@ public class EnsinoResource {
 	EnsinoRepository repo;
 	
 	@GetMapping("/findbyid/{id}")
-	public ResponseEntity<?> findById(@PathVariable Long id){
+	public ResponseEntity<EnsinoDTO> findById(@PathVariable Long id){
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repo.encontrarPeloId(id));
 	}
 	
 	@PostMapping("/save")
-	public ResponseEntity<?> save(@RequestBody EnsinoDTO dto){
+	public ResponseEntity<String> save(@RequestBody EnsinoDTO dto){
 		
 		Ensino model = new Ensino();
 		
@@ -45,15 +47,14 @@ public class EnsinoResource {
 	}
 	
 	@GetMapping("/findall")
-	public ResponseEntity<?> findAll(){
+	public ResponseEntity<List<EnsinoDTO>> findAll(){
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repo.encontrarTodos());
 	}
 	
 	@DeleteMapping("delete/{id}")
-	public ResponseEntity<?> delete(@PathVariable Long id){
+	public ResponseEntity<String> delete(@PathVariable Long id){
 		
-		EnsinoDTO dto = new EnsinoDTO();
-		dto = repo.encontrarPeloId(id);
+		EnsinoDTO dto = repo.encontrarPeloId(id);
 		
 		Ensino model = new Ensino();
 		
